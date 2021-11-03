@@ -20,7 +20,11 @@ public class StudentServiceImpl implements StudentSerivce {
 
     @Override
     public List<Student> getAll() {
-        List<Student> studentList = studentDao.findAll();
-        return studentList;
+        return studentDao.findAll();
     }
+    @Override
+    public Student getOne(Integer id){
+        return studentDao.findById(id).get();
+    }
+
 }

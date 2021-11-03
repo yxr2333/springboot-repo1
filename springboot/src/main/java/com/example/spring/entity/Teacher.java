@@ -1,21 +1,29 @@
 package com.example.spring.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
- * @author 小喻同学
+ * Created by Intellij IDEA
+ *
+ * @Author: Xinrui Yu
+ * @Date: Created in 10:05 2021/11/3
  */
 @Entity
-@Table(name = "t_students")
+@Table(name = "t_teachers")
 @Data
-public class Student {
+public class Teacher {
+
     @Id
-    @Column(name = "id",unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true)
     private Integer id;
 
     @Column(name = "name")
@@ -33,9 +41,9 @@ public class Student {
     @Column(name = "phone")
     private String phone;
 
-//    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-//    @JoinColumn(name = "teacher_id",referencedColumnName = "id",nullable = true)
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+    @JsonBackReference
+    private List<Student> students = new ArrayList<Student>();
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    private List<Teacher> teachers = new ArrayList<>();
+
 }

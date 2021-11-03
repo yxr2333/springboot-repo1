@@ -11,4 +11,5 @@ import java.util.List;
 */
 public interface StudentSerivce {
     List<Student> getAll();
+    Student getOne(Integer id);
 }
