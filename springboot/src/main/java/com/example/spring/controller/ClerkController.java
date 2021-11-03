@@ -4,6 +4,7 @@ package com.example.spring.controller;
 import com.example.spring.entity.Clerk;
 import com.example.spring.service.ClerkService;
 import com.example.spring.utils.Result;
+import io.swagger.annotations.Api;
 import org.apache.ibatis.annotations.Delete;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +18,7 @@ import java.util.List;
  * @Date: Created in 19:23 2021/11/3
  */
 
+@Api(tags = "对接干事接口")
 @RestController
 @RequestMapping("/clerk")
 public class ClerkController {
