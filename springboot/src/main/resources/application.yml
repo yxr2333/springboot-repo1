@@ -3,8 +3,8 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test5?serverTimezone=GMT%2B8
-    username: root
+    url: jdbc:mysql://1.117.163.52:3306/yuyuyu?serverTimezone=GMT%2B8
+    username: yuyuyu
     password: '061600'
     hikari:
       max-lifetime: 30000
