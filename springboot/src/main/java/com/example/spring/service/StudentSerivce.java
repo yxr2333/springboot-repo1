@@ -12,4 +12,8 @@ import java.util.List;
 public interface StudentSerivce {
     List<Student> getAll();
     Student getOne(Integer id);
+    Student addOne(Student student);
+    Student updateOne(Student student);
+    void deleteOne(Integer id);
+    void addTeacher(Integer teacherId,Integer studentId);
 }

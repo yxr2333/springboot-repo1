@@ -41,7 +41,7 @@ public class Teacher {
     @Column(name = "phone")
     private String phone;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JsonBackReference
     private List<Student> students = new ArrayList<Student>();
 

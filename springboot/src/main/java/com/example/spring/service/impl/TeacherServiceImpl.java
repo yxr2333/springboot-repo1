@@ -4,6 +4,7 @@ import com.example.spring.dao.TeacherDao;
 import com.example.spring.entity.Teacher;
 import com.example.spring.service.TeacherService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -14,7 +15,8 @@ import java.util.List;
  * @Author: Xinrui Yu
  * @Date: Created in 11:18 2021/11/3
  */
-@Service
+@Service(value = "teacherService")
+@Transactional(rollbackFor = {})
 public class TeacherServiceImpl implements TeacherService {
 
     @Resource
