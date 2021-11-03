@@ -38,12 +38,19 @@ public class Teacher {
     @Column(name = "major")
     private String major;
 
+    @Column(name = "college")
+    private String college;
+
     @Column(name = "phone")
     private String phone;
 
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JsonBackReference
-    private List<Student> students = new ArrayList<Student>();
+    private List<Student> students = new ArrayList<>();
 
+
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JsonBackReference
+    private List<SmallClass> classes = new ArrayList<>();
 
 }

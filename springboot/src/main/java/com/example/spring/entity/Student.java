@@ -1,5 +1,7 @@
 package com.example.spring.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,6 +14,7 @@ import java.util.List;
 @Entity
 @Table(name = "t_students")
 @Data
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer" ,"handler"})
 public class Student {
     @Id
     @Column(name = "id",unique = true)
@@ -30,12 +33,17 @@ public class Student {
     @Column(name = "major")
     private String major;
 
+    @Column(name = "college")
+    private String college;
+
     @Column(name = "phone")
     private String phone;
 
-//    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-//    @JoinColumn(name = "teacher_id",referencedColumnName = "id",nullable = true)
 
+    @JsonBackReference
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Teacher> teachers = new ArrayList<>();
+
+    @ManyToMany()
+    private List<SmallClass> classes = new ArrayList<>();
 }
