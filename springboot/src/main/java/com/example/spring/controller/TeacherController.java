@@ -51,4 +51,22 @@ public class TeacherController {
         teacherService.deleteOne(id);
         return Result.success(null);
     }
+    @PostMapping("/student")
+    public Result addStudent(
+            @RequestParam(value = "student_id") Integer studentId,
+            @RequestParam(value = "teacher_id") Integer teacherId
+    ){
+        teacherService.addStudent(teacherId,studentId);
+        return Result.success(null);
+    }
+
+    @PostMapping("/class")
+    public Result addClass(
+            @RequestParam(value = "teacher_id") Integer teacherId,
+            @RequestParam(value = "class_id") Integer classId
+    ){
+        teacherService.addClass(teacherId,classId);
+        return Result.success(null);
+    }
+
 }

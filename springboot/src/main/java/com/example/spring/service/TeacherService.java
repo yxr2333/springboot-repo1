@@ -46,4 +46,18 @@ public interface TeacherService {
      * @param id 被删除的小导师的id
      */
     void deleteOne(Integer id);
+
+    /**
+     * 给小导师添加学生
+     * @param teacherId 小导师id
+     * @param studentId 学生id
+     */
+    void addStudent(Integer teacherId,Integer studentId);
+
+    /**
+     * 给小导师添加班级
+     * @param teacherId 小导师id
+     * @param classId 班级id
+     */
+    void addClass(Integer teacherId,Integer classId);
 }

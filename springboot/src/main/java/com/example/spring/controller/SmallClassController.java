@@ -52,4 +52,30 @@ public class SmallClassController {
         return Result.success(null);
     }
 
+    @PostMapping("/student")
+    public Result addStudent(
+            @RequestParam(value = "student_id") Integer studentId,
+            @RequestParam(value = "class_id") Integer classId
+    ) throws Exception {
+        smallClassService.addStudent(studentId,classId);
+        return Result.success(null);
+    }
+
+    @PostMapping("/teacher")
+    public Result setTeacher(
+            @RequestParam(value = "teacher_id") Integer teacherId,
+            @RequestParam(value = "class_id") Integer classId
+    ){
+        smallClassService.setTeacher(classId,teacherId);
+        return Result.success(null);
+    }
+
+    @PostMapping("/clerk")
+    public Result setClerk(
+            @RequestParam(value = "clerk_id") Integer clerkId,
+            @RequestParam(value = "class_id") Integer classId
+    ){
+        SmallClass smallClass = smallClassService.setClerk(classId, clerkId);
+        return Result.success(smallClass);
+    }
 }

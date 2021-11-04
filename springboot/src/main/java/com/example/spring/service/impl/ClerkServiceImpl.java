@@ -1,6 +1,7 @@
 package com.example.spring.service.impl;
 
 import com.example.spring.dao.ClerkDao;
+import com.example.spring.dao.SmallClassDao;
 import com.example.spring.entity.Clerk;
 import com.example.spring.entity.SmallClass;
 import com.example.spring.service.ClerkService;
@@ -22,6 +23,8 @@ import java.util.List;
 public class ClerkServiceImpl implements ClerkService {
     @Resource
     private ClerkDao clerkDao;
+    @Resource
+    private SmallClassDao smallClassDao;
 
     /**
      * 获取所有的干事列表
@@ -74,5 +77,19 @@ public class ClerkServiceImpl implements ClerkService {
     @Override
     public void deleteOne(Integer id) {
         clerkDao.deleteById(id);
+    }
+
+    /**
+     * 给干事添加班级
+     *
+     * @param clerkId 干事id
+     * @param classId 班级id
+     * @return: Clerk 修改后的干事信息
+     */
+    @Override
+    public Clerk addClass(Integer clerkId, Integer classId) {
+        clerkDao.addClass(clerkId,classId);
+        smallClassDao.setClerk(classId,clerkId);
+        return clerkDao.findById(clerkId).get();
     }
 }

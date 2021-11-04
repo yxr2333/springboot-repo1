@@ -74,4 +74,18 @@ public class StudentController {
         studentSerivce.addTeacher(teacherId,studentId);
         return Result.success(null);
     }
+    @ApiOperation(value = "给学生添加班级",notes = "班级必须是已经存在的班级")
+    @PostMapping("/class")
+    public Result addClass(
+            @RequestParam(value = "student_id")
+            @ApiParam(required = true,name = "student_id")
+            Integer studentId,
+
+            @RequestParam(value = "class_id")
+            @ApiParam(required = true,name = "class_id")
+            Integer classId
+    ) throws Exception {
+        studentSerivce.addClass(studentId,classId);
+        return Result.success(null);
+    }
 }

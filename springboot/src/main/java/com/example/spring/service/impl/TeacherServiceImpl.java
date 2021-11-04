@@ -1,5 +1,7 @@
 package com.example.spring.service.impl;
 
+import com.example.spring.dao.SmallClassDao;
+import com.example.spring.dao.StudentDao;
 import com.example.spring.dao.TeacherDao;
 import com.example.spring.entity.Teacher;
 import com.example.spring.service.TeacherService;
@@ -21,6 +23,10 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Resource
     private TeacherDao teacherDao;
+    @Resource
+    private StudentDao studentDao;
+    @Resource
+    private SmallClassDao smallClassDao;
 
     /**
      * Created by Intellij IDEA
@@ -77,5 +83,29 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public void deleteOne(Integer id) {
         teacherDao.deleteById(id);
+    }
+
+    /**
+     * 给小导师添加学生
+     *
+     * @param teacherId 小导师id
+     * @param studentId 学生id
+     */
+    @Override
+    public void addStudent(Integer teacherId, Integer studentId) {
+        studentDao.addTeacher(teacherId,studentId);
+        teacherDao.addStudent(teacherId,studentId);
+    }
+
+    /**
+     * 给小导师添加班级
+     *
+     * @param teacherId 小导师id
+     * @param classId   班级id
+     */
+    @Override
+    public void addClass(Integer teacherId, Integer classId) {
+        teacherDao.addClass(teacherId,classId);
+        smallClassDao.setTeacher(classId,teacherId);
     }
 }

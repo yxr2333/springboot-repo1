@@ -23,4 +23,13 @@ public interface StudentDao extends JpaRepository<Student,Integer> {
     @Modifying
     @Query(value = "insert into t_students_teachers(student_id,teachers_id) values (?2,?1)", nativeQuery = true)
     void addTeacher(Integer teacherId,Integer studentId);
+
+    /**
+     * 给学生添加班级
+     * @param studentId 学生id
+     * @param classId 班级id
+     */
+    @Modifying
+    @Query(value = "insert into t_students_classes(student_id,classes_id) values(?1,?2)",nativeQuery = true)
+    void addClass(Integer studentId,Integer classId);
 }

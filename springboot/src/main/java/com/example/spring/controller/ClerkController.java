@@ -53,4 +53,12 @@ public class ClerkController {
         clerkService.deleteOne(id);
         return Result.success(null);
     }
+    @PostMapping("/class")
+    public Result addClass(
+            @RequestParam(value = "clerk_id") Integer clerkId,
+            @RequestParam(value = "class_id") Integer classId
+    ){
+        Clerk clerk = clerkService.addClass(clerkId, classId);
+        return Result.success(clerk);
+    }
 }

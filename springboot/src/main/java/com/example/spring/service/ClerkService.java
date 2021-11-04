@@ -44,4 +44,12 @@ public interface ClerkService {
      * @param id 需要被删除的干事的id
      */
     void deleteOne(Integer id);
+
+    /**
+     * 给干事添加班级
+     * @param clerkId 干事id
+     * @param classId 班级id
+     * @return: Clerk 修改后的干事信息
+     */
+    Clerk addClass(Integer clerkId,Integer classId);
 }
