@@ -1,2 +1,2 @@
 # 数据库需求
-![需求](https://camo.githubusercontent.com/74e0886d787c46ec7ce89c545a57fe0185bedb3f26b7ea84745ffba98148bbdf/68747470733a2f2f692e6c6f6c692e6e65742f323032312f31312f30332f534b4271385850756b656339334a662e706e67)
+![需求](https://cdn.jsdelivr.net/gh/yxr2333/imgContainer/img/img.png)
