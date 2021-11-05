@@ -2,14 +2,13 @@ package com.example.web.springbootweb.controller;
 
 import com.example.web.springbootweb.entity.Subject;
 import com.example.web.springbootweb.entity.Teacher;
-import com.example.web.springbootweb.exception.DataAlreadyExsitException;
+import com.example.web.springbootweb.exception.DataAlreadyExistException;
 import com.example.web.springbootweb.exception.DataNotFoundException;
 import com.example.web.springbootweb.service.TeacherService;
 import com.example.web.springbootweb.utils.Result;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.xml.crypto.Data;
 import java.util.List;
 
 /**
@@ -39,7 +38,7 @@ public class TeacherController {
     }
 
     @PostMapping("")
-    public Result addOne(@RequestBody Teacher teacher) throws DataAlreadyExsitException {
+    public Result addOne(@RequestBody Teacher teacher) throws DataAlreadyExistException {
         List<Subject> subjects = teacher.getSubjects();
         System.out.println(subjects);
         Teacher savedTeacher = teacherService.addOne(teacher);

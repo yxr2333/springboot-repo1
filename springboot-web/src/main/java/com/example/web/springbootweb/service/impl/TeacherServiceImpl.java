@@ -2,7 +2,7 @@ package com.example.web.springbootweb.service.impl;
 
 import com.example.web.springbootweb.dao.TeacherDao;
 import com.example.web.springbootweb.entity.Teacher;
-import com.example.web.springbootweb.exception.DataAlreadyExsitException;
+import com.example.web.springbootweb.exception.DataAlreadyExistException;
 import com.example.web.springbootweb.exception.DataNotFoundException;
 import com.example.web.springbootweb.service.TeacherService;
 import org.springframework.stereotype.Service;
@@ -56,14 +56,14 @@ public class TeacherServiceImpl implements TeacherService {
      *
      * @param teacher 报名信息
      * @return 存储到数据库中的信息
-     * @throws DataAlreadyExsitException 学号已存在
+     * @throws DataAlreadyExistException 学号已存在
      */
     @Override
-    public Teacher addOne(Teacher teacher) throws DataAlreadyExsitException{
+    public Teacher addOne(Teacher teacher) throws DataAlreadyExistException {
         String number = teacher.getNumber();
         Integer sum = teacherDao.findByNumber(number);
         if(sum == 1){
-            throw new DataAlreadyExsitException("学号出现重复，请确认学号是否正确");
+            throw new DataAlreadyExistException("学号出现重复，请确认学号是否正确");
         }else{
             return teacherDao.save(teacher);
         }
