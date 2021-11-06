@@ -4,11 +4,13 @@ import com.example.web.springbootweb.dao.TeacherDao;
 import com.example.web.springbootweb.entity.Teacher;
 import com.example.web.springbootweb.exception.DataAlreadyExistException;
 import com.example.web.springbootweb.exception.DataNotFoundException;
+import com.example.web.springbootweb.exception.IdNotFoundException;
 import com.example.web.springbootweb.service.TeacherService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import javax.persistence.Id;
 import java.util.List;
 import java.util.Optional;
 
@@ -75,17 +77,23 @@ public class TeacherServiceImpl implements TeacherService {
      *
      * @param teacher 小导师信息
      * @return 更新后的小导师信息
+     * @throws DataNotFoundException 数据不存在
+     * @throws IdNotFoundException 信息不包含id字段
      */
     @Override
-    public Teacher updateOne(Teacher teacher) throws DataNotFoundException{
+    public Teacher updateOne(Teacher teacher) throws DataNotFoundException,IdNotFoundException{
         Integer id = teacher.getId();
-        Optional<Teacher> teacherDaoById = teacherDao.findById(id);
-        if(!teacherDaoById.isPresent()){
-            throw new DataNotFoundException("该小导师信息不存在，无法更改");
+        if(id == null){
+            throw new IdNotFoundException("信息中心未包含编号字段，请检查信息是否有误！");
         }else{
-            return teacherDao.save(teacher);
-
+            Optional<Teacher> teacherDaoById = teacherDao.findById(id);
+            if(!teacherDaoById.isPresent()){
+                throw new DataNotFoundException("该小导师信息不存在，无法更改");
+            }else{
+                return teacherDao.save(teacher);
+            }
         }
+
     }
 
     /**

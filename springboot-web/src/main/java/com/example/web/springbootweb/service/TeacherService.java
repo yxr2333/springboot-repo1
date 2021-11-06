@@ -3,6 +3,7 @@ package com.example.web.springbootweb.service;
 import com.example.web.springbootweb.entity.Teacher;
 import com.example.web.springbootweb.exception.DataAlreadyExistException;
 import com.example.web.springbootweb.exception.DataNotFoundException;
+import com.example.web.springbootweb.exception.IdNotFoundException;
 
 import java.util.List;
 
@@ -36,14 +37,14 @@ public interface TeacherService {
      */
     Teacher addOne(Teacher teacher) throws DataAlreadyExistException;
 
-    // TODO: 2021/11/6 需要对不包含id的情况进行处理，抛出IdNotFoundException
     /**
      * 更新
      * @param teacher 小导师信息
      * @return 更新后的小导师信息
      * @throws  DataNotFoundException 小导师信息未找到，无法更改
+     * @throws  IdNotFoundException 小导师信息中未包含id字段
      */
-    Teacher updateOne(Teacher teacher) throws DataNotFoundException;
+    Teacher updateOne(Teacher teacher) throws DataNotFoundException, IdNotFoundException;
 
     /**
      * 根据id删除小导师信息

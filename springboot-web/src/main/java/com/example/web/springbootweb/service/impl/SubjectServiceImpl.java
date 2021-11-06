@@ -18,7 +18,7 @@ import java.util.Optional;
  * @date 2021-11-6 0:50
  */
 @Service(value = "subjectService")
-@Transactional(rollbackFor = {})
+@Transactional(rollbackFor = Exception.class)
 public class SubjectServiceImpl implements SubjectService {
     @Resource
     private SubjectDao subjectDao;

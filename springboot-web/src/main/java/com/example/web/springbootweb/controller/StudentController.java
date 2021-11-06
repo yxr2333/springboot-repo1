@@ -3,6 +3,7 @@ package com.example.web.springbootweb.controller;
 import com.example.web.springbootweb.entity.Student;
 import com.example.web.springbootweb.exception.DataAlreadyExistException;
 import com.example.web.springbootweb.exception.DataNotFoundException;
+import com.example.web.springbootweb.exception.IdNotFoundException;
 import com.example.web.springbootweb.service.StudentService;
 import com.example.web.springbootweb.utils.Result;
 import lombok.Data;
@@ -41,7 +42,7 @@ public class StudentController {
     }
 
     @PutMapping("")
-    public Result updateOne(@RequestBody Student student) throws DataAlreadyExistException {
+    public Result updateOne(@RequestBody Student student) throws IdNotFoundException, DataNotFoundException {
         Student updatedStudent = studentService.updateOne(student);
         return Result.success(updatedStudent);
     }

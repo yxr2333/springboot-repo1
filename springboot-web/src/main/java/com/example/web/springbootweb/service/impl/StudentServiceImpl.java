@@ -4,6 +4,7 @@ import com.example.web.springbootweb.dao.StudentDao;
 import com.example.web.springbootweb.entity.Student;
 import com.example.web.springbootweb.exception.DataAlreadyExistException;
 import com.example.web.springbootweb.exception.DataNotFoundException;
+import com.example.web.springbootweb.exception.IdNotFoundException;
 import com.example.web.springbootweb.service.StudentService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -67,10 +68,20 @@ public class StudentServiceImpl implements StudentService {
      *
      * @param student 更新的学生信息
      * @return 更新后的学生信息
+     * @throws DataNotFoundException 数据未找到
+     * @throws IdNotFoundException 编号不存在
      */
     @Override
-    public Student updateOne(Student student) {
-        return studentDao.save(student);
+    public Student updateOne(Student student) throws DataNotFoundException, IdNotFoundException {
+        if(student.getId() == null){
+            throw new IdNotFoundException("未输入学生编号，请检查学生信息！");
+        }else{
+            if(!studentDao.findById(student.getId()).isPresent()){
+                throw new DataNotFoundException("不存在此学生信息，无法进行修改");
+            }else{
+                return studentDao.save(student);
+            }
+        }
     }
 
     /**

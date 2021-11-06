@@ -3,9 +3,15 @@ package com.example.web.springbootweb.service;
 import com.example.web.springbootweb.entity.Student;
 import com.example.web.springbootweb.exception.DataAlreadyExistException;
 import com.example.web.springbootweb.exception.DataNotFoundException;
+import com.example.web.springbootweb.exception.IdNotFoundException;
 
 import java.util.List;
 
+
+/**
+ * @author Xinrui Yu
+ * @date 2021-11-6 9:27
+ */
 public interface StudentService {
     /**
      * 获取所有的学生信息
@@ -28,14 +34,14 @@ public interface StudentService {
      * @throws DataAlreadyExistException 学号重复
      */
     Student addOne(Student student) throws DataAlreadyExistException;
-    // TODO: 2021/11/6 1、需要对不包含id的情况进行处理，抛出IdNotFoundException
-    // TODO: 2021/11/6 2、需要对传入的id进行判断，看是否存在，不存在的直接抛出DataNotFoundException
     /**
      * 更新学生信息
      * @param student 更新的学生信息
      * @return 更新后的学生信息
+     * @throws DataNotFoundException 数据未找到
+     * @throws IdNotFoundException 编号不存在
      */
-    Student updateOne(Student student);
+    Student updateOne(Student student) throws DataNotFoundException, IdNotFoundException;
 
     /**
      * 根据id删除学生信息

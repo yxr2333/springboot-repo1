@@ -4,6 +4,7 @@ import com.example.web.springbootweb.entity.Subject;
 import com.example.web.springbootweb.entity.Teacher;
 import com.example.web.springbootweb.exception.DataAlreadyExistException;
 import com.example.web.springbootweb.exception.DataNotFoundException;
+import com.example.web.springbootweb.exception.IdNotFoundException;
 import com.example.web.springbootweb.service.TeacherService;
 import com.example.web.springbootweb.utils.Result;
 import org.springframework.web.bind.annotation.*;
@@ -46,7 +47,7 @@ public class TeacherController {
     }
 
     @PutMapping("")
-    public Result updateOne(@RequestBody Teacher teacher) throws DataNotFoundException{
+    public Result updateOne(@RequestBody Teacher teacher) throws DataNotFoundException, IdNotFoundException {
         Teacher updatedTeacher = teacherService.updateOne(teacher);
         return Result.success(updatedTeacher);
     }
