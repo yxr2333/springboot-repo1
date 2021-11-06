@@ -10,6 +10,8 @@ import com.example.web.springbootweb.utils.Result;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.List;
 
 /**
@@ -19,6 +21,7 @@ import java.util.List;
  * @Date: Created in 22:26 2021/11/4
  */
 
+@CrossOrigin()
 @RestController
 @RequestMapping("/teacher")
 public class TeacherController {
@@ -36,6 +39,20 @@ public class TeacherController {
     public Result getOne(@PathVariable Integer id) throws DataNotFoundException {
         Teacher teacher = teacherService.getOne(id);
         return Result.success(teacher);
+    }
+
+    @GetMapping("/name")
+    public Result getByName(@RequestParam String name){
+        List<Teacher> teachers = teacherService.getTeachersByName(name);
+        return Result.success(teachers);
+    }
+
+    @GetMapping("/college")
+    public Result getByCollegeName(@RequestParam String name) throws UnsupportedEncodingException {
+        name = URLDecoder.decode(name,"UTF-8");
+        System.out.println("name:" + name);
+        List<Teacher> teachers = teacherService.getTeachersByCollege(name);
+        return Result.success(teachers);
     }
 
     @PostMapping("")

@@ -54,6 +54,28 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     /**
+     * 根据小导师的姓名筛选所有相近姓名的导师
+     *
+     * @param name 导师的姓名
+     * @return 导师列表
+     */
+    @Override
+    public List<Teacher> getTeachersByName(String name) {
+        return teacherDao.getTeachersByName(name);
+    }
+
+    /**
+     * 根据学院查询对应的所有导师
+     *
+     * @param name 学院名称
+     * @return 导师列表
+     */
+    @Override
+    public List<Teacher> getTeachersByCollege(String name) {
+        return teacherDao.getTeachersByCollege(name);
+    }
+
+    /**
      * 报名
      *
      * @param teacher 报名信息

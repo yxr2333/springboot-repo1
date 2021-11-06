@@ -12,6 +12,12 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
 
+/**
+* Created by Intellij IDEA
+* @author Xinrui Yu
+* @date Created in 2021-11-06 13:10
+*/
+
 @Entity
 @Data
 @Table(name = "t_info")
@@ -46,9 +52,4 @@ public class Information {
     @Column(name = "content")
     private String content;
 
-    @Column(name = "pre_id")
-    private Integer preId;
-
-    @Column(name = "next_id")
-    private Integer nextId;
 }

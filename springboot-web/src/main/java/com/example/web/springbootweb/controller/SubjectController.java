@@ -16,6 +16,7 @@ import java.util.List;
  * @author yxr
  * @date 2021-11-6 0:43
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/subject")
 public class SubjectController {

@@ -1,5 +1,6 @@
 package com.example.web.springbootweb.service;
 
+import com.example.web.springbootweb.entity.Student;
 import com.example.web.springbootweb.entity.Teacher;
 import com.example.web.springbootweb.exception.DataAlreadyExistException;
 import com.example.web.springbootweb.exception.DataNotFoundException;
@@ -24,11 +25,25 @@ public interface TeacherService {
      * 根据id查询报名小导师信息
      * @param id 小导师id
      * @return 小导师信息
-     * @exception DataNotFoundException 查询的数据不存在
+     * @throws  DataNotFoundException 查询的数据不存在
      */
     Teacher getOne(Integer id) throws DataNotFoundException;
 
 
+
+    /**
+     * 根据小导师的姓名筛选所有相近姓名的导师
+     * @param name 导师的姓名
+     * @return 导师列表
+     */
+    List<Teacher> getTeachersByName(String name);
+
+    /**
+     * 根据学院查询对应的所有导师
+     * @param name 学院名称
+     * @return 导师列表
+     */
+    List<Teacher> getTeachersByCollege(String name);
     /**
      * 报名
      * @param teacher 报名信息

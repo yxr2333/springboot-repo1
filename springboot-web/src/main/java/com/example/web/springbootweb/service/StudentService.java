@@ -28,6 +28,19 @@ public interface StudentService {
     Student getOne(Integer id) throws DataNotFoundException;
 
     /**
+     * 根据学生的姓名筛选所有相近姓名的学生
+     * @param name 学生的姓名
+     * @return 学生列表
+     */
+    List<Student> getStudentsByName(String name);
+
+    /**
+     * 根据学院查询对应的所有学生
+     * @param name 学院名称
+     * @return 学生列表
+     */
+    List<Student> getStudentsByCollege(String name);
+    /**
      * 添加一名学生
      * @param student 学生信息
      * @return 保存到数据库中的学生信息

@@ -47,6 +47,28 @@ public class StudentServiceImpl implements StudentService {
     }
 
     /**
+     * 根据学生的姓名筛选所有相近姓名的学生
+     *
+     * @param name 学生的姓名
+     * @return 学生列表
+     */
+    @Override
+    public List<Student> getStudentsByName(String name) {
+        return studentDao.getStudentsByName(name);
+    }
+
+    /**
+     * 根据学院查询对应的所有学生
+     *
+     * @param name 学院名称
+     * @return 学生列表
+     */
+    @Override
+    public List<Student> getStudentsByCollege(String name) {
+        return studentDao.getStudentsByCollege(name);
+    }
+
+    /**
      * 添加一名学生
      *
      * @param student 学生信息
