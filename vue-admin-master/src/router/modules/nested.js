@@ -26,30 +26,15 @@ const nestedRouter = {
           meta: { title: '数据表格演示' }
         },
         {
-          path: 'menu1-2',
-          component: () => import('@/views/nested/menu1/menu1-2'),
-          name: 'Menu1-2',
-          redirect: '/nested/menu1/menu1-2/menu1-2-1',
-          meta: { title: 'Menu 1-2' },
-          children: [
-            {
-              path: 'menu1-2-1',
-              component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-              name: 'Menu1-2-1',
-              meta: { title: 'Menu 1-2-1' }
-            },
-            {
-              path: 'menu1-2-2',
-              component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-              name: 'Menu1-2-2',
-              meta: { title: 'Menu 1-2-2' }
-            }
-          ]
+          path: 'subject',
+          name: 'Subject',
+          component: () => import('@/views/nested/menu1/subject'),
+          meta: { title: '学科列表' }
         },
         {
-          path: 'menu1-3',
-          component: () => import('@/views/nested/menu1/menu1-3'),
-          name: 'Menu1-3',
+          path: 'teacher',
+          component: () => import('@/views/nested/menu1/teacher'),
+          name: 'MyTable',
           meta: { title: '小导师信息管理' }
         }
       ]

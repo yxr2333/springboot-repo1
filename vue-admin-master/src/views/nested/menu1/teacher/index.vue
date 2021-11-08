@@ -5,7 +5,7 @@
       <el-button v-waves class="filter-item" style="margin-bottom: 0;margin-right: 5px;" type="primary" icon="el-icon-search" @click="ReGetListById">
         Search
       </el-button>
-      <el-input v-model="listQuery.name" placeholder="姓2" style="width: 150px;" @keyup.enter.native="ReGetListByName" />
+      <el-input v-model="listQuery.name" placeholder="姓名" style="width: 150px;" @keyup.enter.native="ReGetListByName" />
       <el-button v-waves class="filter-item" type="primary" style="margin-right: 5px;margin-bottom: 0" icon="el-icon-search" @click="ReGetListByName">
         Search
       </el-button>
