@@ -1,19 +1,24 @@
 package com.ctgu.yxr.service.impl;
 
 import com.ctgu.yxr.dao.CommentDao;
+import com.ctgu.yxr.dao.UserDao;
 import com.ctgu.yxr.entity.Comment;
+import com.ctgu.yxr.entity.User;
 import com.ctgu.yxr.exception.DataNotFoundException;
 import com.ctgu.yxr.service.CommentService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Optional;
 
 @Service(value = "commentService")
 public class CommentServiceImpl implements CommentService {
 
     @Resource
     private CommentDao commentDao;
+    @Resource
+    private UserDao userDao;
     /**
      * 获取所有的评论
      *
@@ -38,5 +43,23 @@ public class CommentServiceImpl implements CommentService {
         }else{
             return commentDao.findById(id).get();
         }
+    }
+
+    /**
+     * 发表评论
+     *
+     * @param comment 评论内容
+     * @return 保存的评论
+     */
+    @Override
+    public Comment addOne(Comment comment) throws DataNotFoundException {
+        Optional<User> optionalUser = userDao.findById(comment.getUser().getId());
+        if(!optionalUser.isPresent()){
+            throw new DataNotFoundException("不存在此评论人的信息！");
+        }else{
+            comment.setUser(optionalUser.get());
+            return commentDao.save(comment);
+        }
+
     }
 }

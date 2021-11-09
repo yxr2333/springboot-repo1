@@ -10,6 +10,7 @@ import com.ctgu.yxr.utils.Result;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
@@ -40,9 +41,11 @@ public class UserController {
     }
     @PostMapping("/login")
     public Result login(@RequestBody User user) {
-        Boolean flag = userService.login(user.getUserName(), user.getPassword());
+        System.out.println("username:" + user.getUsername());
+        System.out.println("password:" + user.getPassword());
+        Boolean flag = userService.login(user.getUsername(), user.getPassword());
         if(flag){
-            String token = JwtUtils.createToken(user.getUserName());
+            String token = JwtUtils.createToken(user.getUsername());
             return Result.success(token);
         }else{
             return Result.failed("用户名或密码错误");

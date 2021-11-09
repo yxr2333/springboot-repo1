@@ -52,8 +52,10 @@ new Vue({
   store,
   render: h => h(App)
 })
+
+
 // 添加request拦截器
-axios.interceptors.request.use(function (config) {
+axios.interceptors.request.use(function(config) {
   // Do something before request is sent
   return config;
 }, function (error) {
@@ -62,10 +64,10 @@ axios.interceptors.request.use(function (config) {
 });
 
 // 添加response的拦截器
-axios.interceptors.response.use(function (response) {
+axios.interceptors.response.use(function(response) {
   // Do something with response data
   return response;
-}, function (error) {
+}, function(error) {
   // Do something with response error
   return Promise.reject(error);
 });

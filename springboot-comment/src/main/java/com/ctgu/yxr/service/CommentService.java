@@ -20,4 +20,11 @@ public interface CommentService {
      * @throws DataNotFoundException 不存在
      */
     Comment getOne(Integer id) throws DataNotFoundException;
+
+    /**
+     * 发表评论
+     * @param comment 评论内容
+     * @return 保存的评论
+     */
+    Comment addOne(Comment comment) throws DataNotFoundException;
 }

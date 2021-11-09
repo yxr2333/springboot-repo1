@@ -18,6 +18,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/student")
+@CrossOrigin
 public class StudentController {
 
     @Resource
@@ -51,5 +52,18 @@ public class StudentController {
     public Result deleteOne(@RequestParam Integer id) throws DataNotFoundException {
         studentService.deleteOne(id);
         return Result.success(null);
+    }
+
+
+    @GetMapping("/name")
+    public Result getAllByName(@RequestParam String name){
+        List<Student> students = studentService.getStudentsByName(name);
+        return Result.success(students);
+    }
+
+    @GetMapping("/college")
+    public Result getAllByCollegeName(@RequestParam String name){
+        List<Student> students = studentService.getStudentsByCollege(name);
+        return Result.success(students);
     }
 }

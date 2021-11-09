@@ -16,7 +16,7 @@ public class JwtInterceptorConfig implements WebMvcConfigurer {
          * 那么就会拦截所有的controller
          **/
         registry.addInterceptor(authenticationInterceptor())
-                .addPathPatterns("/user/all");
+                .addPathPatterns("/comment");
     }
     @Bean
     public JwtAuthenticationInterceptor authenticationInterceptor() {

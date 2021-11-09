@@ -36,14 +36,20 @@ const nestedRouter = {
           component: () => import('@/views/nested/menu1/teacher'),
           name: 'MyTable',
           meta: { title: '小导师信息管理' }
+        },
+        {
+          path: 'student',
+          component: () => import('@/views/nested/menu1/student'),
+          name: 'Student',
+          meta: { title: '学员列表' }
         }
       ]
     },
     {
-      path: 'menu2',
+      path: 'class',
       name: 'Menu2',
       component: () => import('@/views/nested/menu2/index'),
-      meta: { title: 'Menu 2' }
+      meta: { title: '班级管理模块' }
     }
   ]
 }

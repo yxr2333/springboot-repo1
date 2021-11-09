@@ -56,7 +56,7 @@ public class JwtAuthenticationInterceptor implements HandlerInterceptor {
 
             String name = JwtUtils.getClaimByName(token, "userName").asString();
             System.out.println("name:" + name);
-            request.setAttribute("userName",name);
+            request.setAttribute("username",name);
             return true;
         }
         return true;

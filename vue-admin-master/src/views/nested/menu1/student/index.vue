@@ -170,9 +170,8 @@
 import waves from '@/directive/waves'
 import axios from 'axios' // waves directive
 axios.defaults.baseURL = 'http://localhost:8083'
-// import Pagination from '@/components/Pagination'
 export default {
-  name: 'MyTable',
+  name: 'Student',
   directives: { waves },
   defaultSort: {
     'prop': 'id',
@@ -183,7 +182,7 @@ export default {
       addDataDialog: false,
       deleteDialogVisible: false,
       dialogTableVisible: false,
-      tableKey: 0,
+      tableKey: 3,
       listLoading: true,
       list: [],
       subjectList: [],
@@ -300,7 +299,7 @@ export default {
       /**
        * 获取所有小导师的信息
        */
-      axios.get('teacher/all')
+      axios.get('/student/all')
         .then((res) => {
           console.log(res)
           this.list = res.data.data
@@ -350,7 +349,7 @@ export default {
       } else {
         console.log(e)
         this.listLoading = true
-        axios.get('/teacher/' + id)
+        axios.get('/student/' + id)
           .then((res) => {
             console.log(res)
             this.list = []
@@ -370,7 +369,7 @@ export default {
         this.getList()
       } else {
         this.listLoading = true
-        axios.get('/teacher/name?' + 'name=' + name).then((res) => {
+        axios.get('/student/name?' + 'name=' + name).then((res) => {
           console.log(res)
           this.list = res.data.data
         }).catch((error) => {
@@ -387,7 +386,7 @@ export default {
         this.getList()
       } else {
         this.listLoading = true
-        axios.get('/teacher/college?name=' + name)
+        axios.get('/student/college?name=' + name)
           .then((res) => {
             console.log(res)
             this.list = res.data.data
@@ -418,7 +417,7 @@ export default {
     handleSubmit() {
       console.log(this.editTemp)
       const data = this.editTemp
-      axios.put('/teacher', data)
+      axios.put('/student', data)
         .then((res) => {
           const code = res.data.code
           if (code === 5000) {
@@ -442,7 +441,7 @@ export default {
       console.log(row)
       console.log(index)
       const id = row.id
-      axios.delete('/teacher?id=' + id)
+      axios.delete('/student?id=' + id)
         .then((res) => {
           console.log(res)
           if (res.data.code === 4000) {
@@ -463,7 +462,7 @@ export default {
     handleAdd() {
       console.log(this.editTemp)
       const data = this.editTemp
-      axios.post('/teacher', data)
+      axios.post('/student', data)
         .then((res) => {
           console.log(res)
           const code = res.data.code
