@@ -4,7 +4,7 @@
 后台开发：@yxr2333
 
 **大概总体概览**
-![总体概览](https://raw.githubusercontent.com/yxr2333/imgContainer/main/%E9%9C%80%E6%B1%82.png)
+![总体概览](https://raw.githubusercontent.com/yxr2333/imgContainer/main/%E9%9C%80%E6%B1%82%20(1).jpg)
 
 
 **后台管理页面粗略展示**
