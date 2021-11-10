@@ -6,7 +6,6 @@ import com.example.web.springbootweb.exception.DataNotFoundException;
 import com.example.web.springbootweb.exception.IdNotFoundException;
 import com.example.web.springbootweb.service.StudentService;
 import com.example.web.springbootweb.utils.Result;
-import lombok.Data;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
