@@ -47,7 +47,6 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 注册新用户
-     *
      * @param user 用户信息
      * @return 存储后的信息
      */
@@ -58,16 +57,8 @@ public class UserServiceImpl implements UserService {
         user.setPassword(encodePwd);
         return userDao.save(user);
     }
-
-
-    @Override
-    public User getOneByName(String name) {
-        return userDao.getUserByName(name);
-    }
-
     /**
      * 登录
-     *
      * @param userName 用户名
      * @param pwd      密码
      * @return 是否成功
@@ -78,4 +69,11 @@ public class UserServiceImpl implements UserService {
         String encodePwd = EncodeBySHA256.encodeBySHA(pwd);
         return encodePwd.equals(pwdByName);
     }
+
+    @Override
+    public User getOneByName(String name) {
+        return userDao.getUserByName(name);
+    }
+
+
 }
