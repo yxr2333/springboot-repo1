@@ -4,14 +4,13 @@ import com.ctgu.yxr.dao.UserDao;
 import com.ctgu.yxr.entity.User;
 import com.ctgu.yxr.exception.DataNotFoundException;
 import com.ctgu.yxr.service.UserService;
+import com.ctgu.yxr.utils.EncodeBySHA256;
 import org.springframework.stereotype.Service;
 import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
 
 import javax.annotation.Resource;
 import java.io.IOException;
-import java.math.BigInteger;
-import java.security.MessageDigest;
+import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
@@ -53,12 +52,10 @@ public class UserServiceImpl implements UserService {
      * @return 存储后的信息
      */
     @Override
-    public User addOne(User user) throws NoSuchAlgorithmException {
+    public User addOne(User user) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         String password = user.getPassword();
-        BASE64Encoder base64Encoder = new BASE64Encoder();
-        String encode = base64Encoder.encode(password.getBytes());
-        System.out.println("加密后的字符串：" + encode);
-        user.setPassword(encode);
+        String encodePwd = EncodeBySHA256.encodeBySHA(password);
+        user.setPassword(encodePwd);
         return userDao.save(user);
     }
 
@@ -76,21 +73,9 @@ public class UserServiceImpl implements UserService {
      * @return 是否成功
      */
     @Override
-    public Boolean login(String userName, String pwd) {
+    public Boolean login(String userName, String pwd) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         String pwdByName = userDao.getPwdByName(userName);
-        BASE64Decoder base64Decoder = new BASE64Decoder();
-        String decode = null;
-        try {
-            decode = new String(base64Decoder.decodeBuffer(pwdByName));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println("pwd:" + pwd);
-        System.out.println("decode" + decode);
-        if(decode.equals(pwd)){
-            return true;
-        }else {
-            return false;
-        }
+        String encodePwd = EncodeBySHA256.encodeBySHA(pwd);
+        return encodePwd.equals(pwdByName);
     }
 }

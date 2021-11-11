@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
@@ -35,12 +36,14 @@ public class UserController {
     }
 
     @PostMapping("")
-    public Result addOne(@RequestBody User user) throws NoSuchAlgorithmException {
+    public Result addOne(@RequestBody User user) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        System.out.println("name:" + user.getUsername());
+        System.out.println("pwd:" + user.getPassword());
         User savedUser = userService.addOne(user);
         return Result.success(savedUser);
     }
     @PostMapping("/login")
-    public Result login(@RequestBody User user) {
+    public Result login(@RequestBody User user) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         System.out.println("username:" + user.getUsername());
         System.out.println("password:" + user.getPassword());
         Boolean flag = userService.login(user.getUsername(), user.getPassword());

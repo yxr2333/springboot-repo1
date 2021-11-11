@@ -3,6 +3,7 @@ package com.ctgu.yxr.service;
 import com.ctgu.yxr.entity.User;
 import com.ctgu.yxr.exception.DataNotFoundException;
 
+import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
@@ -28,14 +29,17 @@ public interface UserService {
      * @param user 用户信息
      * @return 存储后的信息
      * @throws NoSuchAlgorithmException xx
+     * @throws UnsupportedEncodingException xx
      */
-    User addOne(User user) throws NoSuchAlgorithmException;
+    User addOne(User user) throws NoSuchAlgorithmException, UnsupportedEncodingException;
 
     /**
      * 登录
      * @param userName 用户名
      * @param pwd 密码
      * @return 是否成功
+     * @throws UnsupportedEncodingException xx
+     * @throws NoSuchAlgorithmException xx
      */
-    Boolean login(String userName,String pwd);
+    Boolean login(String userName,String pwd) throws UnsupportedEncodingException, NoSuchAlgorithmException;
 }
