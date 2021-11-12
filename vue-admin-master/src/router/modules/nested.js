@@ -49,7 +49,27 @@ const nestedRouter = {
       path: 'class',
       name: 'Menu2',
       component: () => import('@/views/nested/menu2/index'),
-      meta: { title: '班级管理模块' }
+      meta: { title: '班级管理模块' },
+      children: [
+        {
+          path: 'teacher',
+          component: () => import('@/views/nested/menu2/teacher'),
+          name: 'Teacher',
+          meta: { title: '小导师列表' }
+        },
+        {
+          path: 'student',
+          component: () => import('@/views/nested/menu2/student'),
+          name: 'Student',
+          meta: { title: '学员列表' }
+        },
+        {
+          path: 'class',
+          component: () => import('@/views/nested/menu2/class'),
+          name: 'Class',
+          meta: { title: '班级列表' }
+        }
+      ]
     }
   ]
 }
