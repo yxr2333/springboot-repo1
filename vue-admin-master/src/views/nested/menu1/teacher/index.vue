@@ -150,12 +150,12 @@
         </el-form-item>
         <el-form-item label="志愿一：" prop="subjects" style="width: 200px;">
           <el-select v-model="editTemp.subjects[0].id" placeholder="请选择第一志愿">
-            <el-option v-for="item in subjectList" v-show="item.id != editTemp.subjects[1].id" :key="item.id" :label="item.name" :value="item.id" />
+            <el-option v-for="item in subjectList" v-show="item.id !== editTemp.subjects[1].id" :key="item.id" :label="item.name" :value="item.id" />
           </el-select>
         </el-form-item>
         <el-form-item label="志愿二：" prop="subjects" style="width: 200px;">
           <el-select v-model="editTemp.subjects[1].id" placeholder="请选择第二志愿">
-            <el-option v-for="item in subjectList" v-show="item.id != editTemp.subjects[0].id" :key="item.id" :label="item.name" :value="item.id" />
+            <el-option v-for="item in subjectList" v-show="item.id !== editTemp.subjects[0].id" :key="item.id" :label="item.name" :value="item.id" />
           </el-select>
         </el-form-item>
       </el-form>

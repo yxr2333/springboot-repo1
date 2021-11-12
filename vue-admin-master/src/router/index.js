@@ -11,7 +11,7 @@ import componentsRouter from './modules/components'
 import chartsRouter from './modules/charts'
 import tableRouter from './modules/table'
 import nestedRouter from './modules/nested'
-import $ from 'jquery'
+import mainRouter from '@/router/modules/main_router'
 /**
  * Note: sub-menu only appear when route children.length >= 1
  * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
@@ -79,7 +79,7 @@ export const constantRoutes = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
-        meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
+        meta: { title: '控制台', icon: 'dashboard', affix: true }
       }
     ]
   },
@@ -107,6 +107,7 @@ export const asyncRoutes = [
 
   /** when your routing map is too long, you can split it into small modules **/
   nestedRouter,
+  mainRouter,
   tableRouter,
   {
     path: '/theme',

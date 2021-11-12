@@ -15,8 +15,14 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
+/**
+* created by IDEA
+* @author Xinrui Yu
+* @date 2021/11/12 21:39
+**/
 @RestController
 @RequestMapping("/user")
+@CrossOrigin
 public class UserController {
 
     @Resource
