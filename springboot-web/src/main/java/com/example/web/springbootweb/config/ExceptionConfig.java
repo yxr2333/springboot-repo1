@@ -16,6 +16,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ExceptionConfig {
     @ExceptionHandler(value = Exception.class)
     public Result handlerException(Exception e){
-        return Result.failed(e);
+        return Result.failed(e.getMessage());
     }
 }

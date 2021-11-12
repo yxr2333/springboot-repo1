@@ -6,10 +6,7 @@ import com.ctgu.yxr.exception.DataNotFoundException;
 import com.ctgu.yxr.service.UserService;
 import com.ctgu.yxr.utils.EncodeBySHA256;
 import org.springframework.stereotype.Service;
-import sun.misc.BASE64Decoder;
-
 import javax.annotation.Resource;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
