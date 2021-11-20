@@ -62,13 +62,14 @@ export default {
 </script>
 <style lang='scss' scoped>
 .home {
-  width: 100vw;
-  height: 100vh;
+  min-width: 8rem;
+  height: 100%;
   &_container {
-    width: 100%;
     height: 100%;
     .tabList {
-      float: left;
+      position: absolute;
+      left: 0;
+      top: 0;
       width: 2rem;
       height: 100%;
       border-right: 0.01rem solid #e4e7ed;
@@ -112,8 +113,11 @@ export default {
       }
     }
     .tabContent {
-      float: left;
-      width: calc(100vw - 2rem);
+      position: absolute;
+      top: 0;
+      left: 2rem;
+      width: calc(100% - 2rem);
+      min-width: 5rem;
       height: 100%;
     }
   }

@@ -27,7 +27,7 @@ export default {
 </script>
 <style lang='scss' scoped>
 .container {
-  width: 100%;
+  width: 7rem;
   height: 100%;
   position: relative;
 }

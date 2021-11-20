@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-  <div class="from_container">1
+  <div class="from_container">
     <el-form
       ref="ruleFrom"
       :model="ruleForm"
@@ -8,7 +8,7 @@
     >
       <el-form-item
         label="姓名"
-        label-width=".5rem"
+        label-width=".8rem"
         prop="name"
         v-model="ruleForm.name"
       >
@@ -16,33 +16,49 @@
       </el-form-item>
       <el-form-item
         label="学号"
-        label-width=".5rem"
+        label-width=".8rem"
       >
         <el-input></el-input>
       </el-form-item>
-      <!-- <el-form-item
-        label="年纪"
-        label-width=".5rem"
+      <el-form-item
+        label="学院"
+        label-width=".8rem"
       >
-        <el-select>
-          <el-option>大一</el-option>
-          <el-option>大二</el-option>
-          <el-option>大三</el-option>
-          <el-option>大四</el-option>
-        </el-select>
-      </el-form-item> -->
+        <el-cascader></el-cascader>
+      </el-form-item>
       <el-form-item
         label="专业"
-        label-width=".5rem"
+        label-width=".8rem"
       >
         <el-cascader></el-cascader>
       </el-form-item>
       <el-form-item
         label="电话"
-        label-width=".5rem"
+        label-width=".8rem"
       >
         <el-input label="phone"></el-input>
       </el-form-item>
+      <el-form-item
+        label="应聘科目"
+        label-width=".8rem"
+      >
+        <el-card>
+          <el-checkbox>1</el-checkbox>
+          <el-checkbox>1</el-checkbox>
+          <el-checkbox>1</el-checkbox>
+          <el-checkbox>1</el-checkbox>
+          <el-checkbox>1</el-checkbox>
+          <el-checkbox>1</el-checkbox>
+          <el-checkbox>1</el-checkbox>
+          <el-checkbox>1</el-checkbox>
+          <el-checkbox>1</el-checkbox>
+          <el-checkbox>1</el-checkbox>
+          <el-checkbox>1</el-checkbox>
+          <el-checkbox>1</el-checkbox>
+        </el-card>
+
+      </el-form-item>
+
       <el-form-item>
         <el-button type="primary">Create</el-button>
       </el-form-item>
@@ -84,14 +100,13 @@ export default {
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
-  height: 80%;
+  width: 6rem;
   .el-form {
     width: 100%;
     .el-form-item {
       width: 100%;
       .el-input {
-        width: 40%;
+        width: 70%;
       }
     }
   }
