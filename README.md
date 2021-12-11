@@ -4,12 +4,12 @@
 后台开发：@yxr2333
 
 **大概总体概览**
-![总体概览](https://raw.githubusercontent.com/yxr2333/imgContainer/main/%E9%9C%80%E6%B1%82%20(1).jpg)
+![总体概览](https://cdn.jsdelivr.net/gh/yxr2333/imgContainer/xuqiu.png)
 
 
 **后台管理页面粗略展示**
 
-![粗略展示](https://raw.githubusercontent.com/yxr2333/imgContainer/main/1.png)
+![粗略展示](https://cdn.jsdelivr.net/gh/yxr2333/imgContainer/20211211104712.png)
 
 # 一、项目描述
 三峡大学帮扶系统是帮助三峡大学计算机与信息学院学生会的学风建设部管理学业帮扶活动的一个项目。其内容大概分为以下几个部分。
@@ -41,10 +41,10 @@ Vue
 # 三、数据库设计
 
 ## 3.1 网站展示模块数据库设计
-![网站展示模块数据库](https://raw.githubusercontent.com/yxr2333/imgContainer/main/img/Diagram%201.png)
+![网站展示模块数据库](https://cdn.jsdelivr.net/gh/yxr2333/imgContainer/Diagram 1.png)
 
 
 ## 3.2 核心管理模块数据库设计
-![核心管理模块数据库](https://raw.githubusercontent.com/yxr2333/imgContainer/main/img/Diagram%202.png)
+![核心管理模块数据库](https://cdn.jsdelivr.net/gh/yxr2333/imgContainer/Diagram 2.png)
 
 ## 3.3 评论反馈互动模块数据库设计
